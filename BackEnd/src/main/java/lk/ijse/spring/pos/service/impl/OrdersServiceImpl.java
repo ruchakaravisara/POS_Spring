@@ -1,9 +1,11 @@
 package lk.ijse.spring.pos.service.impl;
 
 import lk.ijse.spring.pos.dto.OrdersDTO;
+import lk.ijse.spring.pos.entity.Orders;
 import lk.ijse.spring.pos.repo.OrdersRepo;
 import lk.ijse.spring.pos.service.OrdersService;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +23,8 @@ public class OrdersServiceImpl implements OrdersService {
 
     @Override
     public List<OrdersDTO> getAllOrders() {
-        return null;
+        List<Orders> all = repo.findAll();
+        return mapper.map(all, new TypeToken<List<OrdersDTO>>() {
+        }.getType());
     }
 }

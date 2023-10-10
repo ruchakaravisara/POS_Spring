@@ -1,4 +1,4 @@
-let baseUrl = 'http://localhost:8080/pos/';
+let baseUrl = 'http://localhost:8080/BackEnd_war/';
 
 getAllOrders();
 
